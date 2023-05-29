@@ -8,7 +8,7 @@ from .models import Brand, Category, Product
 from .serializers import BrandSerializer, CategorySerializer, ProductSerializer
 
 
-class CategoryViewSet(viewsets.ViewSet):
+class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
 
     @extend_schema(responses=CategorySerializer)
@@ -17,7 +17,7 @@ class CategoryViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
 
-class BrandViewSet(viewsets.ViewSet):
+class BrandViewSet(viewsets.ModelViewSet):
     queryset = Brand.objects.all()
 
     @extend_schema(responses=BrandSerializer)
